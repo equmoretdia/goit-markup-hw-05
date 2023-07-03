@@ -15,12 +15,12 @@ ul {
   padding: 0;
 }
 
-.link {
+a {
   text-decoration: none;
   color: currentColor;
 }
 
-.address-style {
+address {
   font-style: normal;
 }
 
@@ -52,6 +52,7 @@ ul {
   --portfolio-page-card-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  --footer-input-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   --modal-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
   /*border colors*/
@@ -258,11 +259,10 @@ body {
 
 .order-service-button {
   border: none;
-  font-family: var(--primary-font-family);
   background-color: var(--primary-brand-color);
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--white-color);
   cursor: pointer;
@@ -514,24 +514,29 @@ body {
   color: var(--light-color);
 }
 
-.footer-social {
+.footer-media-container {
+  margin-right: 80px;
+}
+
+.footer-label {
+  display: block;
   color: var(--white-color);
   font-weight: 500;
   margin-bottom: 16px;
 }
 
-.footer-social-list {
+.footer-list {
   display: flex;
   gap: 16px;
 }
 
-.footer-social-card {
+.footer-card {
   /*flex-basis: calc((100% - 3 * 16px) / 4);*/
   width: 40px;
   height: 40px;
 }
 
-.footer-social-link {
+.footer-card-link {
   display: flex;
   width: 100%;
   height: 100%;
@@ -542,15 +547,70 @@ body {
   transition: background-color 250ms var(--transition-function);
 }
 
-.footer-social-link:hover,
-.footer-social-link:focus {
+.footer-card-link:hover,
+.footer-card-link:focus {
   background-color: var(--success-color);
 }
 
-.footer-social-icon {
+.footer-card-icon {
   fill: var(--light-color);
 }
 
+.footer-form {
+  width: 455px;
+}
+
+.footer-form-container {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-input {
+  width: 266px;
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  background-color: transparent;
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+  border-radius: 4px;
+  box-shadow: var(--footer-input-shadow);
+}
+
+.footer-input::placeholder {
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--white-color);
+}
+
+.footer-button {
+  border: none;
+  display: inline-flex;
+  height: 40px;
+  min-width: 165px;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 4px;
+  background-color: var(--primary-brand-color);
+}
+
+.footer-button-text {
+  color: var(--white-color);
+  text-align: center;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.footer-button-icon {
+  fill: var(--white-color);
+}
 /*index.html modal window styles*/
 
 .backdrop {
@@ -583,9 +643,10 @@ body {
   box-shadow: var(--modal-shadow);
   border-radius: 4px;
   transition: transform 250ms var(--transition-function);
+  padding: 72px 24px 24px;
 }
 
-.modal-button {
+.modal-close-button {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -603,17 +664,140 @@ body {
     border 250ms var(--transition-function);
 }
 
-.modal-button:hover,
-.modal-button:focus {
+.modal-close-button:hover,
+.modal-close-button:focus {
   background-color: var(--pressed-state-color);
   border: none;
 }
 
-.modal-button-cross {
+.modal-close-button-cross {
   transition: fill 250ms var(--transition-function);
 }
 
-.modal-button:hover .modal-button-cross,
-.modal-button:focus .modal-button-cross {
+.modal-close-button:hover .modal-close-button-cross,
+.modal-close-button:focus .modal-close-button-cross {
   fill: var(--white-color);
+}
+
+.modal-invitation {
+  display: block;
+  color: var(--dark-color);
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.modal-form {
+  border-radius: 4px;
+  margin-bottom: 16px;
+  height: 336px;
+  width: 360px;
+}
+
+.modal-form-label {
+  position: relative;
+  display: block;
+  color: var(--subtle-text-color);
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+}
+
+.modal-form-input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--backdrop-background-color);
+  outline: transparent;
+  transition: border-color 250ms var(--transition-function);
+}
+
+.modal-form-input:not(:last-child) {
+  padding: 8px 0 8px 38px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.modal-form-input:focus {
+  border-color: var(--primary-brand-color);
+}
+
+.modal-form-icon {
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
+  fill: var(--dark-color);
+  transition: fill 250ms var(--transition-function);
+}
+
+.modal-form-input:focus + .modal-form-icon {
+  fill: var(--primary-brand-color);
+}
+
+.modal-form-textarea {
+  height: 120px;
+  padding: 8px 0 8px 16px;
+}
+
+.modal-form-textarea::placeholder {
+  color: var(--backdrop-background-color);
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+}
+
+.modal-checkbox-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 24px;
+  height: 16px;
+  width: 360px;
+}
+
+.modal-checkbox-label {
+  padding-left: 24px;
+}
+
+.modal-checkbox-icon {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  fill: none;
+  border-radius: 2px;
+  border: 1px solid var(--backdrop-background-color);
+  transition: background-color 250ms var(--transition-function),
+    fill 250ms var(--transition-function),
+    border 250ms var(--transition-function);
+}
+
+input.visually-hidden:checked + .modal-checkbox-label .modal-checkbox-icon {
+  background-color: var(--pressed-state-color);
+  fill: var(--light-color);
+  border: 1px solid var(--pressed-state-color);
+}
+
+.modal-checkbox-link {
+  text-decoration: underline;
+  color: var(--primary-brand-color);
+}
+
+.modal-submit-button {
+  display: block;
+  min-width: 169px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-brand-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
 }
